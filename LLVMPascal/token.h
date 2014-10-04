@@ -79,34 +79,52 @@ namespace llvmpascal {
         // symbols
         LEFT_PAREN,       // {
         RIGHT_PAREN,      // )
-        LEFT_SQUARE,      //
-        RIGHT_SQUARE,     //
-        PLUS,             //
-        MINUS,            //
-        MULTIPLY,         //
-        DIVIDE,           //
-        COMMA,            //
-        SEMICOLON,        //
-        COLON,            //
-        ASSGIN,           //
-        PERIOD,           //
-        DOT_DOT,          //
-        UPARROW,          //
-        DIV,
-        MOD,
-        XOR,
-        SHR,
-        SHL,
+        LEFT_SQUARE,      // [
+        RIGHT_SQUARE,     // ]
+        PLUS,             // +
+        MINUS,            // -
+        MULTIPLY,         // *
+        DIVIDE,           // /
+        COMMA,            // ,
+        SEMICOLON,        // ;
+        COLON,            // :
+        ASSGIN,           // :=
+        PERIOD,           // .
+        DOT_DOT,          // ..
+        UPARROW,          // ^
+        DIV,              // div
+        MOD,              // mod
+        XOR,              // xor
+        SHR,              // shr
+        SHL,              // shl
         
         // comparation symbols
-        LESS_OR_EQUAL,
-        LESS_THAN,
-        GREATER_OR_EQUAL,
-        GREATER_THAN,
-        EQUAL,
-        NOT_EQUAL,
+        LESS_OR_EQUAL,    // <=
+        LESS_THAN,        // <
+        GREATER_OR_EQUAL, // >=
+        GREATER_THAN,     // >
+        EQUAL,            // =
+        NOT_EQUAL,        // <>
         
         UNRESERVED
+    };
+    
+    
+    class TokenLocation
+    {
+    public:
+        TokenLocation();
+        TokenLocation(const std::string& fileName, int line, int column);
+        
+        std::string toString() const;
+    private:
+        std::string filename_;
+        int line_;
+        int column_;
+    };
+    
+    class Token{
+        Token();
     };
 }
 

@@ -145,7 +145,7 @@ namespace llvmpascal {
         std::string getStringValue() const;
         
         // use it to output debug
-        void dump(std::ostream out = std::out) const;
+        void dump(std::ostream& out = std::cout) const;
         
         
         std::string tokenTypeDescription() const;
@@ -164,6 +164,46 @@ namespace llvmpascal {
         std::string     strValue_;
         
     };
+    
+    inline TokenType Token::getTokenType() const
+    {
+        return type_;
+    }
+    
+    inline TokenValue Token::getTokenValue() const
+    {
+        return value_;
+    }
+    
+    inline std::string Token::getTokenName() const
+    {
+        return name_;
+    }
+    
+    inline const TokenLocation& Token::getTokenLocation() const
+    {
+        return location_;
+    }
+    
+    inline long Token::getIntValue() const
+    {
+        return intValue_;
+    }
+    
+    inline double Token::getRealValue() const
+    {
+        return realValue_;
+    }
+    
+    inline std::string Token::getStringValue() const
+    {
+        return strValue_;
+    }
+    
+    inline int Token::getSymbolPrecedence() const
+    {
+        return symbolPrecedence_;
+    }
 }
 
 #endif /* defined(__LLVMPascal__token__) */

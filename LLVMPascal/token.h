@@ -125,6 +125,44 @@ namespace llvmpascal {
     
     class Token{
         Token();
+        Token(TokenType type, TokenValue value, const TokenLocation& location,std::string name, int symbolPrecedence);
+        Token(TokenType type, TokenValue value, const TokenLocation& location, const std::string& strValue, std::string name);
+        Token(TokenType type, TokenValue value, const TokenLocation& location, long intValue, std::string name);
+        Token(TokenType type, TokenValue value, const TokenLocation& location, double realValue, std::string name);
+        
+        // get token information
+        TokenType getTokenType() const;
+        TokenValue getTokenValue() const;
+        const TokenLocation& getTokenLocation() const;
+        std::string getTokenName() const;
+        
+        // + - * / etc.
+        int getSymbolPrecedence() const;
+        
+        // get constant values of token
+        long getIntValue() const;
+        double getRealValue() const;
+        std::string getStringValue() const;
+        
+        // use it to output debug
+        void dump(std::ostream out = std::out) const;
+        
+        
+        std::string tokenTypeDescription() const;
+        std::string toString() const;
+        
+    private:
+        TokenType       type_;
+        TokenValue      value_;
+        TokenLocation   location_;
+        int             symbolPrecedence_;
+        std::string     name_;
+        
+        // const values of token
+        long            intValue_;
+        double          realValue_;
+        std::string     strValue_;
+        
     };
 }
 

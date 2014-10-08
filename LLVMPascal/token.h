@@ -118,7 +118,7 @@ namespace llvmpascal {
         
         std::string toString() const;
     private:
-        std::string filename_;
+        std::string fileName_;
         int line_;
         int column_;
     };
